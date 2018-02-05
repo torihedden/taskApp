@@ -1,0 +1,38 @@
+ol {
+  list-style: decimal;
+}
+
+span {
+  padding: 5px;
+}
+
+button {
+  margin-right: 15px;
+}
+
+button.edit-item-button {
+  background: yellow;
+}
+
+button.done-item-button {
+  background: lightblue;
+}
+
+button.delete-item-button {
+  background: red;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: lightgray;
+  color: gray;
+}
+
+li.completed-item .task-item-content{
+  color: gray;
+  text-decoration: line-through;
+}
+
+.hide {
+  display: none;
+}

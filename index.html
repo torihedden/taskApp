@@ -3,18 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Tori & Andy's Shared Task App</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
+    <link rel="stylesheet" href="assets/css/main.css">
   </head>
   <body>
+    <div class="container">
+      <form id="add-to-tasklist">
+      	<label>Enter a task</label>
+      	<input type="text" name="task-item" id="task-item">
+      	<button type="submit">Add to list</button>
+      </form>
 
-    <form id="add-to-tasklist">
-    	<label>Enter a task</label>
-    	<input type="text" name="task-item" id="task-item">
-    	<button type="submit">Add to List</button>
-    </form>
+      <div class="">
+        <ol id="tasklist"></ol>
+      </div>
+    </div>
 
-    <ol id="tasklist"></ol>
-
-    <script src="main.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

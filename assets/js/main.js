@@ -8,14 +8,14 @@ addToTaskList.addEventListener('submit', function (event) {
 	event.preventDefault();
 	if (taskListItem.value.length < 1) return;
 
-	taskList.innerHTML += '<li>'
-                     + '<span class="task-item-content">' + taskListItem.value + '</span>'
-                     + '<span class="edit-item-button">Edit task</span>'
-                     + '<span class="done-item-button">Mark as done</span>'
-                     + '<span class="delete-item-button">X</span>'
-                     + '<span class="edit-item-input hide">Edit task here'
+	taskList.innerHTML += '<li class="row">'
+                     + '<span class="task-item-content four columns">' + taskListItem.value + '</span>'
+                     + '<button class="edit-item-button">Edit task</button>'
+                     + '<button class="done-item-button">Mark as done</button>'
+                     + '<button class="delete-item-button">X</button>'
+                     + '<button class="edit-item-input hide">Edit task here'
                      + '<input value="' + taskListItem.value + '"></input>'
-                     + '</span>'
+                     + '</button>'
                      + '</li>';
 	taskListItem.value = '';
 
@@ -59,9 +59,11 @@ taskList.addEventListener('click', function (event) {
     if (event.target.parentElement.classList.contains('completed-item')) {
       event.target.parentElement.classList.remove('completed-item');
       doneItemButton.innerHTML = 'Mark as done';
+			event.target.parentElement.querySelector('.edit-item-button').removeAttribute('disabled');
     } else {
       event.target.parentElement.classList.add('completed-item')
       doneItemButton.innerHTML = 'Reopen';
+			event.target.parentElement.querySelector('.edit-item-button').setAttribute('disabled', true);
     }
 
     // update localStorage with the new task list
