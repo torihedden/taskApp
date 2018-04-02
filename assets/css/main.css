@@ -20,6 +20,7 @@ button.done-item-button {
 
 button.delete-item-button {
   background: red;
+  float: right;
 }
 
 button:disabled {

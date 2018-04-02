@@ -2,6 +2,18 @@ var addToTaskList = document.querySelector('#add-to-tasklist');
 var taskListItem = document.querySelector('#task-item');
 var taskList = document.querySelector('#tasklist');
 
+var taskSyncButton = document.querySelector('#sync-tasks-button');
+
+// Read for existing tasks
+window.onload = function() {
+  var saved = localStorage.getItem('tasklistItems');
+  if (saved) {
+  	taskList.innerHTML = saved;
+  }
+}
+
+// pull down all new tasks from server
+
 // Create new task
 addToTaskList.addEventListener('submit', function (event) {
 
@@ -21,14 +33,6 @@ addToTaskList.addEventListener('submit', function (event) {
 
 	localStorage.setItem('tasklistItems', taskList.innerHTML);
 }, false);
-
-// Read for existing tasks
-window.onload = function() {
-  var saved = localStorage.getItem('tasklistItems');
-  if (saved) {
-  	taskList.innerHTML = saved;
-  }
-}
 
 // Update the task, including changing status (mark as done but not alter task contents or delete)
 // as well as change contents of task
@@ -79,4 +83,22 @@ taskList.addEventListener('click', function (event) {
     // update localStorage with the new task list
     localStorage.setItem('tasklistItems', taskList.innerHTML);
   }
+});
+
+// sync tasks
+taskSyncButton.addEventListener('click', function (event) {
+	// submit synced syncs
+
+	// disable button
+	taskSyncButton.setAttribute('disabled', true);
+
+	taskSyncButton.innerHTML = 'Syncing...';
+
+	// taskSyncButton.innerHTML = 'Tasks synced!';
+  // taskSyncButton.innerHTML = 'Sync failed';
+
+	// re-enable button
+	// taskSyncButton.removeAttribute('disabled');
+
+	// change text back to 'Sync tasks'
 });
